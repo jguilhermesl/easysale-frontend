@@ -1,5 +1,14 @@
-import { ListProductsTemplate } from "@/pageTemplates/company/ListProductsTemplate";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const CompanyListProducts = () => <ListProductsTemplate />;
+const Redirect = () => {
+  const router = useRouter();
 
-export default CompanyListProducts;
+  useEffect(() => {
+    router.push("/company/products");
+  }, []);
+
+  return <></>;
+};
+
+export default Redirect;

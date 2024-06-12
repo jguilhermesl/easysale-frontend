@@ -1,6 +1,6 @@
 // pages/_app.tsx
-import "@/styles/globals.css";
 import Head from "next/head";
+import "@/styles/globals.css";
 
 function MyApp({ Component, pageProps }: any) {
   return (
