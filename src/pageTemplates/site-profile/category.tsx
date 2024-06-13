@@ -1,12 +1,14 @@
+import { Product } from "@/@types/Product";
 import { Carousel } from "@/components/carousel";
-import { Button } from "@/components/ui/button";
+import { DialogAddProductToCart } from "@/components/dialog-add-product-to-cart";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Paragraph } from "@/components/ui/paragraph";
 import { ChevronRight, Plus } from "lucide-react";
 import Image from "next/image";
 
 interface ICategoryProps {
   name: string;
-  items: any[];
+  items: Product[];
 }
 
 export const Category = ({ items, name }: ICategoryProps) => {
@@ -14,13 +16,15 @@ export const Category = ({ items, name }: ICategoryProps) => {
     <div key={name}>
       <div className="flex items-center justify-between">
         <Paragraph className="font-bold">{name}</Paragraph>
-        <Paragraph className="text-orange-600 text-xs flex items-center">
-          Ver mais <ChevronRight color="#EA580C" size={12} className="ml-2" />
-        </Paragraph>
+        <button>
+          <Paragraph className="text-orange-600 text-xs flex items-center">
+            Ver mais <ChevronRight color="#EA580C" size={12} className="ml-2" />
+          </Paragraph>
+        </button>
       </div>
       <Carousel classNameItem="max-w-[200px]">
-        {items.map((item, index) => (
-          <div className="max-w-[200px] flex flex-col">
+        {items.map((item) => (
+          <div className="max-w-[200px] flex flex-col" key={item.name}>
             <Image
               src={item.photo}
               alt=""
@@ -32,9 +36,14 @@ export const Category = ({ items, name }: ICategoryProps) => {
               <Paragraph className=" font-bold text-base">
                 R$ {item.price}
               </Paragraph>
-              <button className="h-8 w-8 bg-black rounded-lg items-center flex justify-center">
-                <Plus color="#FFF" size={16} />
-              </button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="h-8 w-8 bg-black rounded-lg items-center flex justify-center hover:bg-opacity-90 active:bg-opacity-80">
+                    <Plus color="#FFF" size={16} />
+                  </button>
+                </DialogTrigger>
+                <DialogAddProductToCart product={item} />
+              </Dialog>
             </div>
           </div>
         ))}

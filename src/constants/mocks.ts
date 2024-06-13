@@ -10,7 +10,7 @@ export const MOCK_PROFILE = {
 
 export const MOCK_CATEGORIES = [
   {
-    "category": "Queijos",
+    "name": "Queijos",
     "description": "Variedade de queijos",
     "items": [
       {
@@ -27,6 +27,30 @@ export const MOCK_CATEGORIES = [
       },
       {
         "photo": DefaultImage,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": DefaultImage,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": DefaultImage,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": DefaultImage,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": DefaultImage,
         "name": "Queijo Parmesão",
         "description": "Queijo duro e granular, ideal para ralar",
         "price": 30.75
@@ -34,7 +58,7 @@ export const MOCK_CATEGORIES = [
     ]
   },
   {
-    "category": "Frutas",
+    "name": "Frutas",
     "description": "Seleção de frutas frescas",
     "items": [
       {
@@ -58,7 +82,7 @@ export const MOCK_CATEGORIES = [
     ]
   },
   {
-    "category": "Carnes",
+    "name": "Carnes",
     "description": "Carnes selecionadas de alta qualidade",
     "items": [
       {
@@ -82,7 +106,7 @@ export const MOCK_CATEGORIES = [
     ]
   },
   {
-    "category": "Bebidas",
+    "name": "Bebidas",
     "description": "Variedade de bebidas para todas as ocasiões",
     "items": [
       {
@@ -106,7 +130,7 @@ export const MOCK_CATEGORIES = [
     ]
   },
   {
-    "category": "Pães",
+    "name": "Pães",
     "description": "Pães frescos e deliciosos",
     "items": [
       {
@@ -129,5 +153,19 @@ export const MOCK_CATEGORIES = [
       }
     ]
   }
-]
-  ;
+];
+
+export const MOCK_CATEGORIES_CHOICES = [
+  {
+    value: "temakis",
+    label: "Temakis",
+  },
+  {
+    value: "peças",
+    label: "Peças",
+  },
+  {
+    value: "especiais",
+    label: "Especiais",
+  },
+];

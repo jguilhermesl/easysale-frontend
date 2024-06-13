@@ -2,7 +2,7 @@
 const nextConfig = {
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
   experimental: {
-    appDir: true
+    appDir: false
   },
   images: {
     domains: ['www.thespruceeats.com'],

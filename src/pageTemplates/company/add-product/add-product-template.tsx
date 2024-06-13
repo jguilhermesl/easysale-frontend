@@ -3,21 +3,7 @@ import { Button } from "@/components/ui/button";
 import { FormInputField } from "@/components/form-input-field";
 import { FormSelectField } from "@/components/form-select-field";
 import { FormSwitchField } from "@/components/form-switch-field";
-
-const MOCK_CATEGORIES_CHOICES = [
-  {
-    value: "temakis",
-    label: "Temakis",
-  },
-  {
-    value: "peças",
-    label: "Peças",
-  },
-  {
-    value: "especiais",
-    label: "Especiais",
-  },
-];
+import { MOCK_CATEGORIES_CHOICES } from "@/constants/mocks";
 
 export const AddProductTemplate = () => {
   return (

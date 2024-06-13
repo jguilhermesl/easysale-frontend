@@ -8,11 +8,12 @@ import {
 import { Paragraph } from "./ui/paragraph";
 
 interface IFormSelectFieldProps {
-  label: string;
+  label?: string;
   placeholder?: string;
   description?: string;
   onChange: (value: string) => void;
-  value: string;
+  value?: string;
+  className?: string;
   choices: {
     value: string;
     label: string;
@@ -26,10 +27,11 @@ export const FormSelectField = ({
   onChange,
   value,
   choices,
+  className,
 }: IFormSelectFieldProps) => {
   return (
-    <div>
-      <Paragraph className="font-medium">{label}</Paragraph>
+    <div className={className}>
+      {label && <Paragraph className="font-medium">{label}</Paragraph>}
       <Select onValueChange={onChange} defaultValue={value}>
         <SelectTrigger className="my-2">
           <SelectValue placeholder={placeholder} />
@@ -44,9 +46,11 @@ export const FormSelectField = ({
           })}
         </SelectContent>
       </Select>
-      <Paragraph className="text-xs text-muted-foreground">
-        {description}
-      </Paragraph>
+      {description && (
+        <Paragraph className="text-xs text-muted-foreground">
+          {description}
+        </Paragraph>
+      )}
     </div>
   );
 };
