@@ -2,6 +2,8 @@ import { CompanyAuthenticatedLayout } from "@/components/layouts/company-authent
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/router";
+import { CategorieTableFilters } from "./categories-table-filter";
+import { CategoriesList } from "./categories";
 
 export const CategoriesTemplate = () => {
   const router = useRouter();
@@ -18,8 +20,8 @@ export const CategoriesTemplate = () => {
       }
     >
       <div className="flex flex-col gap-4">
-        {/* <ProductsTableFilters /> */}
-        {/* <ProductsList /> */}
+        <CategorieTableFilters/>
+        <CategoriesList/>
       </div>
     </CompanyAuthenticatedLayout>
   );

@@ -3,13 +3,13 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { Edit, Trash, X } from "lucide-react";
 import { useRouter } from "next/router";
 
-export const ProductsTableRow = () => {
+export const CategoriesTableRow = () => {
 
   const router = useRouter()
   return (
     <TableRow>
       <TableCell className="font-mono">0321cjlas39210</TableCell>
-      <TableCell className="font-medium">Coca-Cola</TableCell>
+      <TableCell className="font-medium">Bebidas</TableCell>
       <TableCell>
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-slate-400" />
@@ -18,8 +18,8 @@ export const ProductsTableRow = () => {
       </TableCell>
       <TableCell className="font-medium">R$ 49,90</TableCell>
       <TableCell>
-        <Button variant="outline" size="sm" onClick={()=> router.push("/company/edit-product")} >
-          <Edit className="mr-2 h-3 w-3"  />
+        <Button variant="outline" size="sm" onClick={()=> router.push('/company/edit-categorie')}>
+          <Edit className="mr-2 h-3 w-3" />
           Editar
         </Button>
       </TableCell>

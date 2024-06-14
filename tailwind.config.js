@@ -1,7 +1,7 @@
 const config = {
   darkMode: ["class"],
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}", './public/index.html'
   ],
   prefix: "",
   theme: {
