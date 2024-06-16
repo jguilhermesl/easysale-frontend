@@ -5,13 +5,13 @@ import { FormSelectField } from "@/components/form-select-field";
 import { MOCK_CATEGORIES_CHOICES } from "@/constants/mocks";
 import { FormSwitchField } from "@/components/form-switch-field";
 
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import { validationSchemaEditProduct } from "@/lib/utils/validations";
 
 
 export const EditProductTemplate = () => {
 
-  const handleSubmit = (values)=> {
+  const handleSubmitForm = (values)=> {
     console.log(values)
   }
   return (
@@ -24,29 +24,35 @@ export const EditProductTemplate = () => {
           produto: 'Coca-Cola',
           descricao: 'Sua bebida favorita',
           preco: '$ 49',
-          categoria: 'bebidas',
+          categoria: '',
           visibilidade: true,
         }}
         validationSchema={validationSchemaEditProduct}
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmitForm}
       >
-        {({ isSubmitting }) => (
-          <Form className="space-y-6">
+        {({ handleSubmit, values, setFieldValue }) => (
+          <Form className="space-y-6" onSubmit={handleSubmit}>
             <Field
+            id="produto"
               name="produto"
               label="Produto"
               placeholder="Nome do produto"
               description="O nome que ficará visível para o produto."
               component={FormInputField}
+              
             />
+              <ErrorMessage name="produto" component="div" className="text-red-500" />
             <Field
+             id="descricao"
               name="descricao"
               label="Descrição (opcional)"
               placeholder="Descrição do produto"
               description="Adicione uma descrição breve e direta para o produto."
               component={FormInputField}
             />
+              <ErrorMessage name="descricao" component="div" className="text-red-500" />
             <Field
+             id="preco"
               name="preco"
               label="Preço"
               placeholder="Preço do produto"
@@ -54,22 +60,31 @@ export const EditProductTemplate = () => {
               type="number"
               component={FormInputField}
             />
-            <Field
+             <ErrorMessage name="preco" component="div" className="text-red-500" />
+             <Field
+              id="categoria"
               name="categoria"
               label="Categoria"
               choices={MOCK_CATEGORIES_CHOICES}
               placeholder="Categoria do produto"
               description="A categoria que o produto pertence."
               component={FormSelectField}
+              onChange={(value) => setFieldValue('categoria', value)}
+              value={values.categoria}
             />
+             <ErrorMessage name="categoria" component="div" className="text-red-500" />
             <Field
+              id="visibilidade"
               name="visibilidade"
               label="Visibilidade"
               description="Isso garante com que seu produto fique visível ou não"
               component={FormSwitchField}
+              isChecked={values.visibilidade}
+              onCheckedChange={(checked) => setFieldValue('visibilidade', checked)}
             />
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Enviando...' : 'Confirmar Alteração'}
+             <ErrorMessage name="visibilidade" component="div" className="text-red-500" />
+            <Button type="submit" >
+            Confirmar Alteração
             </Button>
           </Form>
         )}

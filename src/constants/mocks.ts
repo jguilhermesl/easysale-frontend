@@ -54,7 +54,62 @@ export const MOCK_CATEGORIES = [
         "name": "Queijo Parmesão",
         "description": "Queijo duro e granular, ideal para ralar",
         "price": 30.75
-      }
+      },  {
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },{
+        "photo": DefaultImage,
+        "name": "Queijo Parmesão",
+        "description": "Queijo duro e granular, ideal para ralar",
+        "price": 30.75
+      },
     ]
   },
   {

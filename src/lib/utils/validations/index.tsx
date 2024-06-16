@@ -1,15 +1,20 @@
 import * as Yup from "yup";
 
 export const validationSchemaEditProduct = Yup.object().shape({
-  produto: Yup.string().required('Campo obrigatório'),
+  produto: Yup.string()
+    .required('O nome do produto é obrigatório'),
   descricao: Yup.string(),
-  preco: Yup.number().required('Campo obrigatório'),
-  categoria: Yup.string().required('Campo obrigatório'),
+  preco: Yup.string()
+    .required('Preço é um campo obrigatório'),
+  categoria: Yup.string()
+    .required('A categoria do produto é obrigatória'),
+  visibilidade: Yup.boolean()
+    .required('A visibilidade é obrigatória')
 });
 
 export const validationSchemaEditCategorie = Yup.object().shape({
-  categoria: Yup.string().required('Campo obrigatório'),
-  descricao: Yup.string().required('Campo obrigatório'),
+  categoria: Yup.string().required('O campo categoria é obrigatório'),
+  descricao: Yup.string().required('O campo descrição é obrigatório'),
 });
 
 export const validationSchemaLogin = Yup.object().shape({
