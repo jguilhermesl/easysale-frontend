@@ -1,6 +1,7 @@
 // pages/_app.tsx
 import Head from "next/head";
 import "@/styles/globals.css";
+import { CartContextProvider } from "@/hooks/useCart";
 
 function MyApp({ Component, pageProps }: any) {
   return (
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: any) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <CartContextProvider>
+        <Component {...pageProps} />
+      </CartContextProvider>
     </>
   );
 }

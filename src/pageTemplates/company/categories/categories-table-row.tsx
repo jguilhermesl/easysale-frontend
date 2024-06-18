@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
-import { Edit, Trash, X } from "lucide-react";
+import { Edit, Trash } from "lucide-react";
 import { useRouter } from "next/router";
 
 export const CategoriesTableRow = () => {
-
-  const router = useRouter()
+  const router = useRouter();
   return (
     <TableRow>
       <TableCell className="font-mono">0321cjlas39210</TableCell>
@@ -18,7 +17,11 @@ export const CategoriesTableRow = () => {
       </TableCell>
       <TableCell className="font-medium">R$ 49,90</TableCell>
       <TableCell>
-        <Button variant="outline" size="sm" onClick={()=> router.push('/company/edit-categorie')}>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => router.push("/company/edit-category")}
+        >
           <Edit className="mr-2 h-3 w-3" />
           Editar
         </Button>

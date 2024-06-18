@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { FormInputField } from "@/components/form-input-field";
 
 
-export const AddCategorieTemplate = () => {
+export const AddCategoryTemplate = () => {
   return (
     <CompanyAuthenticatedLayout
       title="Criar categoria"

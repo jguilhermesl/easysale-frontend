@@ -1,4 +1,4 @@
-import {LoginTemplate } from "@/pageTemplates/company/login/LoginTemplate"
+import { LoginTemplate } from "@/pageTemplates/company/login/login-template";
 
 const Login = () => <LoginTemplate />;
 

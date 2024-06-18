@@ -3,7 +3,7 @@ import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function CategorieTableFilters() {
+export function CategoriesTableFilters() {
   return (
     <form className="flex items-center gap-2">
       <span className="text-sm font-semibold">Filtros:</span>

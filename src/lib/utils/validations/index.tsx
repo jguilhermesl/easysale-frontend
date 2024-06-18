@@ -12,7 +12,7 @@ export const validationSchemaEditProduct = Yup.object().shape({
     .required('A visibilidade é obrigatória')
 });
 
-export const validationSchemaEditCategorie = Yup.object().shape({
+export const validationSchemaEditCategory = Yup.object().shape({
   categoria: Yup.string().required('O campo categoria é obrigatório'),
   descricao: Yup.string().required('O campo descrição é obrigatório'),
 });
