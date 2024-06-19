@@ -25,11 +25,13 @@ export const EditCategoryTemplate = () => {
         <div>
           <FormInputField
             value={values.name}
+            label="Nome da categoria"
             onChange={handleChange("name")}
             {...getFieldProps("name")}
           />
           <FormInputField
             value={values.description}
+            label="Descrição da categoria"
             onChange={handleChange("description")}
             {...getFieldProps("description")}
           />

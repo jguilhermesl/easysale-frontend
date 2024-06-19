@@ -2,6 +2,9 @@ import Logo from "@/assets/mix-mateus-logo.png"
 import Bg from "@/assets/mix-mateus-bg.jpeg"
 import DefaultImage from "@/assets/default-image.jpeg"
 
+
+
+
 export const MOCK_PROFILE = {
   name: "Mix João",
   photo: Logo,

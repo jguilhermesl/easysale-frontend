@@ -5,6 +5,7 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Paragraph } from "@/components/ui/paragraph";
 import { ChevronRight, Plus } from "lucide-react";
 import Image from "next/image";
+import {useRouter} from "next/router"
 
 interface ICategoryProps {
   name: string;
@@ -12,11 +13,13 @@ interface ICategoryProps {
 }
 
 export const Category = ({ items, name }: ICategoryProps) => {
+
+  const router = useRouter()
   return (
     <div key={name}>
       <div className="flex items-center justify-between">
         <Paragraph className="font-bold">{name}</Paragraph>
-        <button>
+        <button onClick={ () => router.push(`/category?=${name}`)}>
           <Paragraph className="text-orange-600 text-xs flex items-center">
             Ver mais <ChevronRight color="#EA580C" size={12} className="ml-2" />
           </Paragraph>

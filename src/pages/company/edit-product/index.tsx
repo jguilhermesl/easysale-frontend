@@ -1,4 +1,6 @@
-import { EditProductTemplate } from "@/pageTemplates/company/edit-product";
+
+
+import { EditProductTemplate } from "@/pageTemplates/company/edit-product/edit-product-template";
 
 
 export const CompanyEditProduct= () => <EditProductTemplate />;
