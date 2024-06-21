@@ -1,4 +1,6 @@
-import {  useState } from "react";
+'use client'
+
+import { useEffect, useState } from "react";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
 import { FormSelectField } from "@/components/form-select-field";
@@ -15,13 +17,27 @@ import { useRouter } from "next/router";
 const SiteProfileTemplate = () => {
   const profile = MOCK_PROFILE;
   const [categories, setCategories] = useState(MOCK_CATEGORIES);
-  const [searchResults, setSearchResults] = useState('');
+  const [searchProducts, setSearchProducts] = useState('')
+  const router = useRouter()
+  const handleChangeCategory = (e) => {
+    router.push({
+      pathname: '/category',
+      query: { category: e },
+    });
+  };
 
-  const router = useRouter();
-  const { query } = router
-  
+  useEffect(() => {
+    const { category } = router.query;
+    if (category) {
 
- 
+      const filteredCategories = MOCK_CATEGORIES.filter(item => item.name === category);
+      setCategories(filteredCategories);
+    } else {
+
+      setCategories(MOCK_CATEGORIES);
+    }
+  }, [router.query]);
+
   return (
     <div className="flex flex-col relative w-full">
       <SiteProfileHeader background={profile.background} photo={profile.photo} />
@@ -38,23 +54,23 @@ const SiteProfileTemplate = () => {
           <div className="flex items-center gap-4 flex-1">
             <FormSelectField
               className="max-w-[300px] w-full"
-              onChange={() => {}}
+              onChange={(e) => handleChangeCategory(e)}
               choices={MOCK_CATEGORIES_CHOICES}
               placeholder="Selecione uma categoria"
             />
             <FormInputField
-              value=""
-              onChange={() => {}}
+              value={searchProducts}
+              onChange={(e) => setSearchProducts(e.target.value)}
               placeholder="Procure por um produto"
               className="max-w-[300px] w-full"
             />
           </div>
-          <Button className="flex ml-auto">
+          <Button onClick={()=> handleChangeCategory('')} className="flex ml-auto"> 
             <Search color="#FFF" />
           </Button>
         </form>
         <div className="flex flex-col mt-6 gap-12">
-          {categories.map((category, index) => (
+          {categories.map((category: any, index: number) => (
             <Category key={index} name={category.name} items={category.items} />
           ))}
         </div>
