@@ -1,17 +1,48 @@
-import { MOCK_CATEGORIES, MOCK_PROFILE } from "@/constants/mocks";
-import { Heading } from "@/components/ui/heading";
-import { Paragraph } from "@/components/ui/paragraph";
-import { Category } from "./category";
-import { FormSelectField } from "@/components/form-select-field";
-import { MOCK_CATEGORIES_CHOICES } from "@/constants/mocks";
-import { FormInputField } from "@/components/form-input-field";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Search } from "lucide-react";
-import { SiteProfileHeader } from "./site-profile-header";
+'use client';
 
-export const SiteProfileTemplate = () => {
-  const profile = MOCK_PROFILE;
-  const categories = MOCK_CATEGORIES;
+import { useEffect, useState } from 'react';
+import { Heading } from '@/components/ui/heading';
+import { Paragraph } from '@/components/ui/paragraph';
+import { FormSelectField } from '@/components/form-select-field';
+import { FormInputField } from '@/components/form-input-field';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, MapPin, Search } from 'lucide-react';
+import { SiteProfileHeader } from './site-profile-header';
+import {
+  MOCK_PROFILE,
+  MOCK_CATEGORIES_CHOICES,
+  MOCK_CATEGORIES,
+} from '@/constants/mocks';
+import { Category } from './category';
+import { useRouter } from 'next/router';
+
+const profile = MOCK_PROFILE;
+
+const SiteProfileTemplate = () => {
+  const [categories, setCategories] = useState(MOCK_CATEGORIES);
+  const [searchProducts, setSearchProducts] = useState('');
+
+  const router = useRouter();
+
+  const handleChangeCategory = (e) => {
+    router.push({
+      pathname: '/category',
+      query: { category: e },
+    });
+  };
+
+  useEffect(() => {
+    const { category } = router.query;
+
+    if (category) {
+      const filteredCategories = MOCK_CATEGORIES.filter(
+        (item) => item.name === category
+      );
+      setCategories(filteredCategories);
+    } else {
+      setCategories(MOCK_CATEGORIES);
+    }
+  }, [router.query]);
 
   return (
     <div className="flex flex-col relative w-full">
@@ -32,28 +63,31 @@ export const SiteProfileTemplate = () => {
           <div className="flex items-center gap-4 flex-1">
             <FormSelectField
               className="max-w-[300px] w-full"
-              onChange={() => {}}
+              onChange={(e) => handleChangeCategory(e)}
               choices={MOCK_CATEGORIES_CHOICES}
               placeholder="Selecione uma categoria"
             />
             <FormInputField
-              value=""
-              onChange={() => {}}
+              value={searchProducts}
+              onChange={(e) => setSearchProducts(e.target.value)}
               placeholder="Procure por um produto"
               className="max-w-[300px] w-full"
             />
           </div>
-          <Button className="flex ml-auto">
+          <Button
+            onClick={() => handleChangeCategory('')}
+            className="flex ml-auto"
+          >
             <Search color="#FFF" />
           </Button>
         </form>
         <div className="flex flex-col mt-6 gap-12">
-          {categories.map((category) => {
-            return <Category name={category.name} items={category.items} />;
-          })}
+          {categories.map((category: any, index: number) => (
+            <Category key={index} name={category.name} items={category.items} />
+          ))}
         </div>
       </div>
-      <button className="flex items-center justify-between fixed  bottom-0 left-0 right-0 w-full h-16 bg-red-800 z-10 px-8 hover:bg-red-700 active:bg-red-600">
+      <button className="flex items-center justify-between fixed bottom-0 left-0 right-0 w-full h-16 bg-red-800 z-10 px-8 hover:bg-red-700 active:bg-red-600">
         <Paragraph className="flex text-white font-bold">
           Concluir pedido
         </Paragraph>
@@ -62,3 +96,5 @@ export const SiteProfileTemplate = () => {
     </div>
   );
 };
+
+export default SiteProfileTemplate;

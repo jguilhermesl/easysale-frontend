@@ -1,6 +1,14 @@
 import Logo from "@/assets/mix-mateus-logo.png"
 import Bg from "@/assets/mix-mateus-bg.jpeg"
 import DefaultImage from "@/assets/default-image.jpeg"
+import Queijo from "../assets/queijo.jpg"
+import Frutas from "@/assets/frutas.jpg"
+import Bebidas from "@/assets/bebidas.jpg"
+import Carnes from "@/assets/carnes.jpg"
+
+
+
+
 
 export const MOCK_PROFILE = {
   name: "Mix João",
@@ -14,47 +22,60 @@ export const MOCK_CATEGORIES = [
     "description": "Variedade de queijos",
     "items": [
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Gouda",
         "description": "Um ótimo queijo holandês",
         "price": 20.50
       },
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Brie",
         "description": "Queijo cremoso de origem francesa",
         "price": 25.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Brie",
         "description": "Queijo cremoso de origem francesa",
         "price": 25.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Brie",
         "description": "Queijo cremoso de origem francesa",
         "price": 25.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Brie",
         "description": "Queijo cremoso de origem francesa",
         "price": 25.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Queijo,
         "name": "Queijo Brie",
         "description": "Queijo cremoso de origem francesa",
         "price": 25.00
       },
       {
-        "photo": DefaultImage,
-        "name": "Queijo Parmesão",
-        "description": "Queijo duro e granular, ideal para ralar",
-        "price": 30.75
-      }
+        "photo": Queijo,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": Queijo,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      {
+        "photo": Queijo,
+        "name": "Queijo Brie",
+        "description": "Queijo cremoso de origem francesa",
+        "price": 25.00
+      },
+      
     ]
   },
   {
@@ -62,23 +83,82 @@ export const MOCK_CATEGORIES = [
     "description": "Seleção de frutas frescas",
     "items": [
       {
-        "photo": DefaultImage,
+        "photo": Frutas,
         "name": "Maçã",
         "description": "Fruta crocante e suculenta",
         "price": 3.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Frutas,
         "name": "Banana",
         "description": "Rica em potássio e prática para lanches",
         "price": 1.50
       },
       {
-        "photo": DefaultImage,
+        "photo": Frutas,
         "name": "Manga",
         "description": "Fruta tropical doce e suculenta",
         "price": 4.00
-      }
+      },
+      {
+        "photo": Frutas,
+        "name": "Maçã",
+        "description": "Fruta crocante e suculenta",
+        "price": 3.00
+      },
+      {
+        "photo": Frutas,
+        "name": "Banana",
+        "description": "Rica em potássio e prática para lanches",
+        "price": 1.50
+      },
+      {
+        "photo": Frutas,
+        "name": "Manga",
+        "description": "Fruta tropical doce e suculenta",
+        "price": 4.00
+      },
+      {
+        "photo": Frutas,
+        "name": "Maçã",
+        "description": "Fruta crocante e suculenta",
+        "price": 3.00
+      },
+      {
+        "photo": Frutas,
+        "name": "Banana",
+        "description": "Rica em potássio e prática para lanches",
+        "price": 1.50
+      },
+      {
+        "photo": Frutas,
+        "name": "Manga",
+        "description": "Fruta tropical doce e suculenta",
+        "price": 4.00
+      },{
+        "photo": Frutas,
+        "name": "Maçã",
+        "description": "Fruta crocante e suculenta",
+        "price": 3.00
+      },
+      {
+        "photo": Frutas,
+        "name": "Banana",
+        "description": "Rica em potássio e prática para lanches",
+        "price": 1.50
+      },
+      {
+        "photo": Frutas,
+        "name": "Manga",
+        "description": "Fruta tropical doce e suculenta",
+        "price": 4.00
+      },
+      {
+        "photo": Frutas,
+        "name": "Maçã",
+        "description": "Fruta crocante e suculenta",
+        "price": 3.00
+      },
     ]
   },
   {
@@ -86,23 +166,78 @@ export const MOCK_CATEGORIES = [
     "description": "Carnes selecionadas de alta qualidade",
     "items": [
       {
-        "photo": DefaultImage,
+        "photo": Carnes,
         "name": "Filé Mignon",
         "description": "Corte de carne bovina macio e saboroso",
         "price": 50.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Carnes,
         "name": "Frango",
         "description": "Peito de frango sem osso e sem pele",
         "price": 15.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Carnes,
         "name": "Costela de Porco",
         "description": "Ideal para churrascos e grelhados",
         "price": 20.00
-      }
+      },  {
+        "photo": Carnes,
+        "name": "Filé Mignon",
+        "description": "Corte de carne bovina macio e saboroso",
+        "price": 50.00
+      },
+      {
+        "photo": Carnes,
+        "name": "Frango",
+        "description": "Peito de frango sem osso e sem pele",
+        "price": 15.00
+      }, {
+        "photo": Carnes,
+        "name": "Filé Mignon",
+        "description": "Corte de carne bovina macio e saboroso",
+        "price": 50.00
+      },
+      {
+        "photo": Carnes,
+        "name": "Frango",
+        "description": "Peito de frango sem osso e sem pele",
+        "price": 15.00
+      },      {
+        "photo": Carnes,
+        "name": "Frango",
+        "description": "Peito de frango sem osso e sem pele",
+        "price": 15.00
+      },
+      {
+        "photo": Carnes,
+        "name": "Costela de Porco",
+        "description": "Ideal para churrascos e grelhados",
+        "price": 20.00
+      },  {
+        "photo": Carnes,
+        "name": "Filé Mignon",
+        "description": "Corte de carne bovina macio e saboroso",
+        "price": 50.00
+      },
+      {
+        "photo": Carnes,
+        "name": "Frango",
+        "description": "Peito de frango sem osso e sem pele",
+        "price": 15.00
+      }, {
+        "photo": Carnes,
+        "name": "Filé Mignon",
+        "description": "Corte de carne bovina macio e saboroso",
+        "price": 50.00
+      },
+      {
+        "photo": Carnes,
+        "name": "Frango",
+        "description": "Peito de frango sem osso e sem pele",
+        "price": 15.00
+      },
     ]
   },
   {
@@ -110,19 +245,19 @@ export const MOCK_CATEGORIES = [
     "description": "Variedade de bebidas para todas as ocasiões",
     "items": [
       {
-        "photo": DefaultImage,
+        "photo": Bebidas,
         "name": "Suco de Laranja",
         "description": "Suco fresco e natural, sem adição de açúcar",
         "price": 5.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Bebidas,
         "name": "Vinho Tinto",
         "description": "Vinho encorpado com sabor frutado",
         "price": 40.00
       },
       {
-        "photo": DefaultImage,
+        "photo": Bebidas,
         "name": "Cerveja Artesanal",
         "description": "Cerveja produzida em pequenas quantidades, com ingredientes selecionados",
         "price": 12.00
@@ -157,15 +292,23 @@ export const MOCK_CATEGORIES = [
 
 export const MOCK_CATEGORIES_CHOICES = [
   {
-    value: "temakis",
-    label: "Temakis",
+    value: "Pães",
+    label: "Pães",
   },
   {
-    value: "peças",
-    label: "Peças",
+    value: "Bebidas",
+    label: "Bebidas",
   },
   {
-    value: "especiais",
-    label: "Especiais",
+    value: "Carnes",
+    label: "Carnes",
+  },
+  {
+    value: "Frutas",
+    label: "Frutas",
+  },
+  {
+    value: "Queijos",
+    label: "Queijos",
   },
 ];

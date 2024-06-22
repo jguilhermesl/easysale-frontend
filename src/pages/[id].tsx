@@ -1,4 +1,5 @@
-import { SiteProfileTemplate } from "@/pageTemplates/site-profile/site-profile-template";
+import SiteProfileTemplate from "@/pageTemplates/site-profile/site-profile-template";
+
 
 export const SiteProfile = () => <SiteProfileTemplate />;
 
