@@ -1,24 +1,29 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from "react";
-import { Heading } from "@/components/ui/heading";
-import { Paragraph } from "@/components/ui/paragraph";
-import { FormSelectField } from "@/components/form-select-field";
-import { FormInputField } from "@/components/form-input-field";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Search } from "lucide-react";
-import { SiteProfileHeader } from "./site-profile-header";
-import { MOCK_PROFILE, MOCK_CATEGORIES_CHOICES, MOCK_CATEGORIES } from "@/constants/mocks";
-import { Category } from "./category";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import { Heading } from '@/components/ui/heading';
+import { Paragraph } from '@/components/ui/paragraph';
+import { FormSelectField } from '@/components/form-select-field';
+import { FormInputField } from '@/components/form-input-field';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, MapPin, Search } from 'lucide-react';
+import { SiteProfileHeader } from './site-profile-header';
+import {
+  MOCK_PROFILE,
+  MOCK_CATEGORIES_CHOICES,
+  MOCK_CATEGORIES,
+} from '@/constants/mocks';
+import { Category } from './category';
+import { useRouter } from 'next/router';
 
-
+const profile = MOCK_PROFILE;
 
 const SiteProfileTemplate = () => {
-  const profile = MOCK_PROFILE;
   const [categories, setCategories] = useState(MOCK_CATEGORIES);
-  const [searchProducts, setSearchProducts] = useState('')
-  const router = useRouter()
+  const [searchProducts, setSearchProducts] = useState('');
+
+  const router = useRouter();
+
   const handleChangeCategory = (e) => {
     router.push({
       pathname: '/category',
@@ -28,19 +33,23 @@ const SiteProfileTemplate = () => {
 
   useEffect(() => {
     const { category } = router.query;
-    if (category) {
 
-      const filteredCategories = MOCK_CATEGORIES.filter(item => item.name === category);
+    if (category) {
+      const filteredCategories = MOCK_CATEGORIES.filter(
+        (item) => item.name === category
+      );
       setCategories(filteredCategories);
     } else {
-
       setCategories(MOCK_CATEGORIES);
     }
   }, [router.query]);
 
   return (
     <div className="flex flex-col relative w-full">
-      <SiteProfileHeader background={profile.background} photo={profile.photo} />
+      <SiteProfileHeader
+        background={profile.background}
+        photo={profile.photo}
+      />
       <div className="flex flex-col px-6 md:px-32 lg:px-48 xl:px-[300px] pt-8 pb-20">
         <Heading className="text-2xl">{profile.name}</Heading>
         <Paragraph className="flex items-center gap-2 my-2 font-medium text-muted-foreground">
@@ -65,7 +74,10 @@ const SiteProfileTemplate = () => {
               className="max-w-[300px] w-full"
             />
           </div>
-          <Button onClick={()=> handleChangeCategory('')} className="flex ml-auto"> 
+          <Button
+            onClick={() => handleChangeCategory('')}
+            className="flex ml-auto"
+          >
             <Search color="#FFF" />
           </Button>
         </form>
