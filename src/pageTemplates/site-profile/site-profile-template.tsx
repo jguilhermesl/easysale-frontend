@@ -15,6 +15,8 @@ import {
 } from '@/constants/mocks';
 import { Category } from './category';
 import { useRouter } from 'next/router';
+import { useCart } from '@/hooks/useCart';
+
 
 const profile = MOCK_PROFILE;
 
@@ -22,7 +24,9 @@ const SiteProfileTemplate = () => {
   const [categories, setCategories] = useState(MOCK_CATEGORIES);
   const [searchProducts, setSearchProducts] = useState('');
 
+  const {cartItems} = useCart()
   const router = useRouter();
+
 
   const handleChangeCategory = (e) => {
     router.push({
@@ -87,12 +91,14 @@ const SiteProfileTemplate = () => {
           ))}
         </div>
       </div>
-      <button className="flex items-center justify-between fixed bottom-0 left-0 right-0 w-full h-16 bg-red-800 z-10 px-8 hover:bg-red-700 active:bg-red-600">
-        <Paragraph className="flex text-white font-bold">
-          Concluir pedido
-        </Paragraph>
-        <ArrowRight color="#FFF" />
-      </button>
+      {cartItems.length > 0? (
+   <button className="flex items-center justify-between fixed bottom-0 left-0 right-0 w-full h-16 bg-red-800 z-10 px-8 hover:bg-red-700 active:bg-red-600" onClick={()=> router.push('/company/cart')}>
+   <Paragraph className="flex text-white font-bold">
+     Concluir pedido
+   </Paragraph>
+   <ArrowRight color="#FFF" />
+ </button>
+      ): null}
     </div>
   );
 };

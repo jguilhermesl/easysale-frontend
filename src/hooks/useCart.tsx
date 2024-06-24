@@ -1,4 +1,4 @@
-import { CartItem } from "@/@types/Cart";
+import { CartItem } from "@/@types/Cart"
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 export interface CartProviderProps {
@@ -18,8 +18,15 @@ const CartContext = createContext<CartContextDataProps>(
 export function CartContextProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState([] as CartItem[]);
 
-  const addProductToCart = () => {};
-
+  const addProductToCart = (product) => {
+    const newCartItem: CartItem = {
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity, 
+    };
+    setCartItems((prevCartItems) => [...prevCartItems, newCartItem]);
+  };
   const removeProductFromCart = () => {};
 
   return (
