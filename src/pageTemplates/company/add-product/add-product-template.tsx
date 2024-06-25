@@ -20,11 +20,11 @@ export const AddProductTemplate = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(prevState => [...prevState, reader.result]);;
+        setImagePreview([reader.result]);
       };
       reader.readAsDataURL(file);
     } else {
-      setImagePreview(null);
+      setImagePreview([]);
     }
   };
 
@@ -92,7 +92,7 @@ export const AddProductTemplate = () => {
           label="Imagem"
           type="file"
           placeholder="Imagem do produto"
-          description="Adicione até 3 imagens do seu produto"
+          description="Adicione uma imagem para seu produto"
           onChange={handleFileChange}
         />
 {imagePreview.length > 0 && (
