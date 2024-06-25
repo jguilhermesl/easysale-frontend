@@ -1,5 +1,7 @@
 import { CartItem } from "@/@types/Cart"
+import { toast } from "@/components/ui/use-toast";
 import React, { createContext, ReactNode, useContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export interface CartProviderProps {
   children: ReactNode;
@@ -20,14 +22,24 @@ export function CartContextProvider({ children }: CartProviderProps) {
 
   const addProductToCart = (product) => {
     const newCartItem: CartItem = {
-      productId: product.id,
+      productId: uuidv4(),
       name: product.name,
       price: product.price,
       quantity: product.quantity, 
     };
     setCartItems((prevCartItems) => [...prevCartItems, newCartItem]);
+    
+    toast({
+      title: "Item adicionado ao carrinho ",
+         })
+
   };
-  const removeProductFromCart = () => {};
+  const removeProductFromCart = (id) => {
+    setCartItems(cartItems.filter((item) => item.productId !== id))
+    toast({
+      title: "Item excluído do carrinho ",
+         })
+  };
 
   return (
     <CartContext.Provider

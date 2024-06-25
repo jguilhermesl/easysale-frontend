@@ -2,6 +2,7 @@
 import Head from "next/head";
 import "@/styles/globals.css";
 import { CartContextProvider } from "@/hooks/useCart";
+import { Toaster } from "@/components/ui/toaster";
 
 function MyApp({ Component, pageProps }: any) {
   return (
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }: any) {
         />
       </Head>
       <CartContextProvider>
+        <Toaster/> 
         <Component {...pageProps} />
       </CartContextProvider>
     </>
