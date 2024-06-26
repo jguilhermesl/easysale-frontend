@@ -1,25 +1,24 @@
-import Image from "next/image";
-import { FormInputField } from "./form-input-field";
+import Image from 'next/image';
+import { FormInputField } from './form-input-field';
 import {
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
-import { Minus, Plus } from "lucide-react";
-import { Paragraph } from "./ui/paragraph";
-import { Button } from "./ui/button";
-import { useCart } from "@/hooks/useCart";
-import { useState } from "react";
+} from './ui/dialog';
+import { Minus, Plus } from 'lucide-react';
+import { Paragraph } from './ui/paragraph';
+import { Button } from './ui/button';
+import { useCart } from '@/hooks/useCart';
+import { useState } from 'react';
 
 export const DialogAddProductToCart = ({ product }) => {
-  const [quantityProduct, setQuantityProduct] = useState(1); 
+  const [quantityProduct, setQuantityProduct] = useState(1);
 
   const { addProductToCart } = useCart();
 
   const handleAddProductCart = () => {
     addProductToCart({ ...product, quantity: quantityProduct });
-    console.log(product);
   };
 
   const handleAddQuantityProduct = () => {
@@ -55,7 +54,7 @@ export const DialogAddProductToCart = ({ product }) => {
             label="Detalhes"
             placeholder="Adicione detalhes ao pedido"
             onChange={() => {}}
-            value={""}
+            value={''}
             className="w-full"
           />
           <div className="flex items-center gap-4">
@@ -65,17 +64,16 @@ export const DialogAddProductToCart = ({ product }) => {
             >
               <Minus color="#FFF" size={16} />
             </button>
-            <Paragraph className="font-bold text-xl">{quantityProduct}</Paragraph>
+            <Paragraph className="font-bold text-xl">
+              {quantityProduct}
+            </Paragraph>
             <button
               onClick={handleAddQuantityProduct}
               className="h-8 w-8 bg-black rounded-lg items-center flex justify-center hover:bg-opacity-90 active:bg-opacity-80"
             >
               <Plus color="#FFF" size={16} />
             </button>
-            <Button
-              onClick={handleAddProductCart}
-              className="bg-red-600 ml-4"
-            >
+            <Button onClick={handleAddProductCart} className="bg-red-600 ml-4">
               Adicionar ao carrinho
             </Button>
           </div>
