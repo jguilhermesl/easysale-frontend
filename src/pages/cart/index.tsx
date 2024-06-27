@@ -1,4 +1,4 @@
-import CartTemplate from '@/pageTemplates/site-profile/cart/cart-template';
+import CartTemplate from '@/pageTemplates/cart/cart-template';
 
 export const Cart = () => <CartTemplate />;
 

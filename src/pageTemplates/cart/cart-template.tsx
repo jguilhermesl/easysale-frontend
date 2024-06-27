@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ShoppingCart } from 'lucide-react';
 import { Heading } from '@/components/ui/heading';
 import { Paragraph } from '@/components/ui/paragraph';
-import { SiteProfileHeader } from '../site-profile-header';
 import { MOCK_PROFILE } from '@/constants/mocks';
 import { CartListItems } from './cart-list-items';
+import { SiteProfileHeader } from '../site-profile/site-profile-header';
+import { CartEmptyState } from './cart-empty-state';
 
 const profile = MOCK_PROFILE;
 
@@ -47,19 +48,7 @@ const CartTemplate = () => {
             <Button className="w-full">Finalizar Compra</Button>
           </div>
         ) : (
-          <div className="max-w-[380px] flex flex-col items-center">
-            <Heading>Ops, que pena... </Heading>{' '}
-            <Paragraph className="text-xl">
-              Seu carrinho ainda está vazio{' '}
-            </Paragraph>
-            <ShoppingCart className="my-4" size={60} />{' '}
-            <Button
-              onClick={() => router.push('/xxx')}
-              className="w-full bg-green-400"
-            >
-              Visualizar produtos
-            </Button>{' '}
-          </div>
+          <CartEmptyState />
         )}
       </div>
     </>

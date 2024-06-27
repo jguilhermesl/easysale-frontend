@@ -1,7 +1,7 @@
 import { Heading } from '@/components/ui/heading';
 import { Paragraph } from '@/components/ui/paragraph';
 import { MapPin } from 'lucide-react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 interface ISiteProfileHeaderProps {
   profile: any;
