@@ -10,10 +10,10 @@ import { useEffect, useState } from 'react';
 interface ICategoryProps {
   name: string;
   items: Product[];
+  categoryActive: string;
 }
 
-export const Category = ({ items, name }: ICategoryProps) => {
-  const [filterIsActive, setFilterIsActive] = useState(false);
+export const Category = ({ items, name, categoryActive }: ICategoryProps) => {
   const router = useRouter();
 
   const handleChangeCategory = (e: string) => {
@@ -23,28 +23,20 @@ export const Category = ({ items, name }: ICategoryProps) => {
     });
   };
 
-  useEffect(() => {
-    const { category } = router.query;
-
-    if (category) {
-      setFilterIsActive(true);
-    }
-  }, [router.query]);
-
   return (
     <div key={name}>
       <div className="flex items-center justify-between">
         <Paragraph className="font-bold">{name}</Paragraph>
-        {!filterIsActive && (
+        {!categoryActive && (
           <button onClick={() => handleChangeCategory(name)}>
-            <Paragraph className="text-orange-600 text-xs flex items-center">
-              Ver mais{' '}
+            <Paragraph className="text-orange-600 text-xs flex items-center gap-2">
+              Ver mais
               <ChevronRight color="#EA580C" size={12} className="ml-2" />
             </Paragraph>
           </button>
         )}
       </div>
-      {filterIsActive ? (
+      {categoryActive ? (
         <ProductGrid items={items} />
       ) : (
         <Carousel classNameItem="max-w-[200px]">

@@ -10,7 +10,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => (
-  <div className="max-w-[200px] flex flex-col mx-auto">
+  <div className="flex flex-col">
     <Image
       src={product.photo}
       alt={product.name}
