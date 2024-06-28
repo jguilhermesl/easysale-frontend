@@ -5,10 +5,12 @@ import { FormSelectField } from '@/components/form-select-field';
 import { MOCK_CATEGORIES_CHOICES } from '@/constants/mocks';
 import { FormSwitchField } from '@/components/form-switch-field';
 import { useFormik } from 'formik';
-import { validationSchemaEditProduct } from '@/lib/utils/validations';
+import { validationSchemaProduct } from '@/lib/utils/validations';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Trash } from 'lucide-react';
+import { formatPriceToStringBR } from '@/lib/utils/validations/formatPriceToString';
+
 
 export const AddProductTemplate = () => {
   const [imagePreview, setImagePreview] = useState([]);
@@ -51,19 +53,19 @@ export const AddProductTemplate = () => {
       initialValues: {
         product: '',
         description: '',
-        price: '',
+        price: 0,
         category: '',
-        file: '',
+        file: null,
         visibility: true,
       },
-      validationSchema: validationSchemaEditProduct,
+      validationSchema: validationSchemaProduct,
       onSubmit: handleSubmitForm,
     });
 
   return (
     <CompanyAuthenticatedLayout
-      title="Editar produto"
-      description="Edite dados do seu produto de maneira rápida e eficaz"
+      title="Adicionar produto"
+      description="Adicione dados do seu produto de maneira rápida e eficaz"
     >
       <form onSubmit={handleSubmit} className="space-y-6">
         <FormInputField
@@ -86,9 +88,11 @@ export const AddProductTemplate = () => {
           label="Preço"
           placeholder="Preço do produto"
           description="Adicione um preço no seu produto"
-          value={values.price}
-          onChange={handleChange('price')}
-          {...getFieldProps('price')}
+          value={formatPriceToStringBR(values.price)}
+          onChange={(e) => {
+            const cleanedValue = e.target.value.replace(/[^\d.,]/g, '');
+            setFieldValue('price', cleanedValue);
+          }}
         />
         <FormInputField
           label="Imagem"

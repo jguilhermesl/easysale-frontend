@@ -5,6 +5,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+import { MockProducts } from "@/constants/mocks";
 import { ProductsTableRow } from "./products-table-row";
 
 export const ProductsList = () => {
@@ -23,9 +25,10 @@ export const ProductsList = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {Array.from({ length: 10 }).map((_, i) => {
-              return <ProductsTableRow key={i} />;
-            })}
+            {MockProducts.map((product)=> (
+  <ProductsTableRow  key={product.id} id={product.id} name={product.name} isActive={product.isActive} price={product.price} />
+            ))}
+         
           </TableBody>
         </Table>
       </div>

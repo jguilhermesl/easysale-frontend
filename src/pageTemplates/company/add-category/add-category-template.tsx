@@ -2,7 +2,7 @@ import { CompanyAuthenticatedLayout } from "@/components/layouts/company-authent
 import { Button } from "@/components/ui/button";
 import { FormInputField } from "@/components/form-input-field";
 import { FormSwitchField } from "@/components/form-switch-field";
-import { validationSchemaEditCategory } from "@/lib/utils/validations";
+import { validationSchemaCategory} from "@/lib/utils/validations";
 import { useFormik } from "formik";
 
 
@@ -17,7 +17,7 @@ export const AddCategoryTemplate = () => {
       descricao: '',
       visibilidade: true,
     },
-    validationSchema: validationSchemaEditCategory,
+    validationSchema: validationSchemaCategory,
     onSubmit: handleSubmitForm,
   });
   return (
