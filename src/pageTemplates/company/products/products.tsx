@@ -8,8 +8,23 @@ import {
 
 import { MockProducts } from "@/constants/mocks";
 import { ProductsTableRow } from "./products-table-row";
+import { useEffect, useState } from "react";
+import { getProducts } from "@/api/product/get-product";
 
 export const ProductsList = () => {
+  const [products, setProducts] = useState<any>()
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      } 
+    };
+    fetchProducts();
+  }, []);
   return (
     <div>
       <div className="border rounded-md">

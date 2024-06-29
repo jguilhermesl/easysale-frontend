@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Trash } from 'lucide-react';
 import { formatPriceToStringBR } from '@/lib/utils/validations/formatPriceToString';
+import { createProduct } from '@/api/product/create-product';
 
 
 export const AddProductTemplate = () => {
@@ -44,8 +45,13 @@ export const AddProductTemplate = () => {
     });
   };
 
-  const handleSubmitForm = (values) => {
-    console.log(values);
+  const handleSubmitForm = async (values) => {
+    try {
+      const response = await createProduct(values);
+      console.log("Produto criado com sucesso:", response);
+    } catch (error) {
+      console.error("Erro ao criar o produto:", error);
+    }
   };
 
   const { values, getFieldProps, setFieldValue, handleSubmit, handleChange } =
