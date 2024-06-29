@@ -5,9 +5,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+import { MockProducts } from "@/constants/mocks";
 import { ProductsTableRow } from "./products-table-row";
+import { useEffect, useState } from "react";
+import { getProducts } from "@/api/product/get-product";
 
 export const ProductsList = () => {
+  const [products, setProducts] = useState<any>()
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      } 
+    };
+    fetchProducts();
+  }, []);
   return (
     <div>
       <div className="border rounded-md">
@@ -23,9 +40,10 @@ export const ProductsList = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {Array.from({ length: 10 }).map((_, i) => {
-              return <ProductsTableRow key={i} />;
-            })}
+            {MockProducts.map((product)=> (
+  <ProductsTableRow  key={product.id} id={product.id} name={product.name} isActive={product.isActive} price={product.price} />
+            ))}
+         
           </TableBody>
         </Table>
       </div>

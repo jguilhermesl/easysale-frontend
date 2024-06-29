@@ -312,3 +312,49 @@ export const MOCK_CATEGORIES_CHOICES = [
     label: "Queijos",
   },
 ];
+
+export const MockProducts = [
+  {
+    id: '0321cjlas39210',
+    name: 'Coca-Cola',
+    isActive: true,
+    price: 49.9
+  },
+  {
+    id: '0421abdas44230',
+    name: 'Pepsi',
+    isActive: false,
+    price: 39.9
+  },
+  {
+    id: '0521dshdja52030',
+    name: 'Fanta',
+    isActive: true,
+    price: 29.9
+  },
+  {
+    id: '0621slsjdla62010',
+    name: 'Guaraná',
+    isActive: true,
+    price: 19.9
+  },
+  {
+    id: '0721ajlsj392430',
+    name: 'Sprite',
+    isActive: false,
+    price: 34.9
+  },
+  {
+    id: '0821alsjd292310',
+    name: 'Água Mineral',
+    isActive: true,
+    price: 2.5
+  },
+  {
+    id: '0921slajd382301',
+    name: 'Suco de Laranja',
+    isActive: false,
+    price: 15.0
+  }
+
+];

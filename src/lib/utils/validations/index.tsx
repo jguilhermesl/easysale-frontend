@@ -1,18 +1,22 @@
 import * as Yup from "yup";
 
-export const validationSchemaEditProduct = Yup.object().shape({
-  produto: Yup.string()
+
+export const validationSchemaProduct = Yup.object().shape({
+  product: Yup.string()
     .required('O nome do produto é obrigatório'),
-  descricao: Yup.string(),
-  preco: Yup.string()
+  description: Yup.string(),
+  price: Yup.number()
     .required('Preço é um campo obrigatório'),
-  categoria: Yup.string()
+  category: Yup.string()
     .required('A categoria do produto é obrigatória'),
-  visibilidade: Yup.boolean()
+  file: Yup.mixed().required('O arquivo é obrigatório'),
+  visibility: Yup.boolean()
     .required('A visibilidade é obrigatória')
 });
 
-export const validationSchemaEditCategory = Yup.object().shape({
+
+
+export const validationSchemaCategory = Yup.object().shape({
   categoria: Yup.string().required('O campo categoria é obrigatório'),
   descricao: Yup.string().required('O campo descrição é obrigatório'),
 });
